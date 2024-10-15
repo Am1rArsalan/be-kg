@@ -12,6 +12,11 @@ import (
 	"github.com/Am1rArsalan/kelvin-green/service"
 )
 
+// NOTE:
+// config must be global in the project
+// and have it's own package, just to keep
+// every thing simple i didn't create a seprate
+// package for it for this app.
 const defaultPort = "8080"
 
 func Run() {
@@ -25,9 +30,6 @@ func Run() {
 	graphResover := graph.NewResolver(service)
 
 	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: graphResover}))
-
-	//http.Handle("/", playground.Handler("GraphQL playground", "/query"))
-	//http.Handle("/query", srv)
 
 	http.Handle("/", corsMiddleware(playground.Handler("GraphQL playground", "/query")))
 	http.Handle("/query", corsMiddleware(srv))
