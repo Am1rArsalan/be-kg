@@ -1,0 +1,53 @@
+type Query {
+    getWeather(latitude: String!, longitude: String!): Weather
+}
+
+type Weather {
+    latitude: Float
+    longitude: Float
+    generationTimeMs: Float
+    utcOffsetSeconds: Int
+    timezone: String
+    timezoneAbbreviation: String
+    elevation: Float
+    hourlyUnits: HourlyUnits
+    hourly: Hourly
+    dailyUnits: DailyUnits
+    daily: Daily
+}
+
+type HourlyUnits {
+    time: String
+    temperature2m: String
+    relativeHumidity2m: String
+}
+
+type Hourly {
+    time: [String]
+    temperature2m: [Float]
+    relativeHumidity2m: [Float]
+}
+
+type DailyUnits {
+    time: String
+    weatherCode: String
+    temperature2mMax: String
+    temperature2mMin: String
+    apparentTemperatureMax: String
+    apparentTemperatureMin: String
+    sunrise: String
+    sunset: String
+}
+
+type Daily {
+    apparentTemperatureMax: [Float]
+    apparentTemperatureMin: [Float]
+    sunrise: [String]
+    sunset: [String]
+    time: [String]
+    weatherCode: [Int]
+    temperature2mMax: [Float]
+    temperature2mMin: [Float]
+    windDirection10mDominant: [Float]
+}
+
