@@ -1,4 +1,4 @@
-# Weather GraphQL API Documentation
+# Weather App Backend
 
 ## Overview
 
