@@ -7,11 +7,6 @@
 *.so
 *.dylib
 
-# Go test files
-*.test
-
-# Go modules
-/go.sum
 
 # Dependency directories
 vendor/
